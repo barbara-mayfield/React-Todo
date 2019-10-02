@@ -1,2 +1,11 @@
 import React from 'react';
-import { render } from 'react-dom';
+
+const Todo = props => {
+    return (
+      <div>
+        <p>{props.task}</p>
+      </div>
+    );
+  };
+  
+  export default Todo;
