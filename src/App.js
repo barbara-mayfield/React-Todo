@@ -40,17 +40,39 @@ class App extends Component {
     })
   }
 
+  toggleComplete = (e, id) => {
+    let todos = this.state.todos.slice();
+    todos = todos.map(todo => { 
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+        return todo;
+      } else {
+        return todo;
+      }
+      
+    });
+    this.setState({ todos })
+  }
+
+  clearTodos = e => {
+    e.preventDefault();
+    let todos = this.state.todos.filter(todo => !todo.completed);
+    this.setState({ todos });
+  };
+
   render() {
     return (
       <div>
         <h1>My Todo List</h1>
         <TodoList
+          toggleComplete={this.toggleComplete}
           todos={this.state.todos}
         />
         <TodoForm
           value={this.state.todo}
           addTodo={this.addTodo}
           handleChange={this.handleChange}
+          clearTodos={this.clearTodos}
         />
       </div>
     );
