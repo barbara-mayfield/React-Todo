@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 
 const TodoForm = props => {  
     console.log(props, 'props passed to TodoForm')
@@ -11,10 +12,19 @@ const TodoForm = props => {
             value={props.value}
             onChange={props.handleChange}
           />
-          <button type="submit" className="submit-btn btn" onClick={props.addTodo}>
+          <Button outline 
+            color="primary" 
+            type="submit" 
+            className="submit-btn btn" 
+            onClick={props.addTodo}>
             Add Task
-          </button>
-          <button className="clear-btn btn" onClick={props.clearTodos}>Clear</button>
+          </Button>
+          <Button outline 
+            color="secondary"
+            className="clear-btn btn" 
+            onClick={props.clearTodos}>
+            Clear
+            </Button>
         </form>
       );
     };

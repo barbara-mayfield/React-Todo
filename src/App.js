@@ -11,13 +11,8 @@ class App extends Component {
     this.state = {
       todos: [
         {
-          task: 'Clean Kitchen',
-          id: 1877877,
-          completed: false
-        },
-        {
-          task: 'Sweep Floors',
-          id: 8675309,
+          task: '',
+          id: Date.now(),
           completed: false
         }
       ],
@@ -54,10 +49,8 @@ class App extends Component {
     this.setState({ todos })
   }
 
-  clearTodos = e => {
-    e.preventDefault();
-    let todos = this.state.todos.filter(todo => !todo.completed);
-    this.setState({ todos });
+  clearCompletedTodos = e => {
+    this.setState({ todo: this.state.todos.filter(todo => !todo.completed) })    
   };
 
   render() {
@@ -72,7 +65,7 @@ class App extends Component {
           value={this.state.todo}
           addTodo={this.addTodo}
           handleChange={this.handleChange}
-          clearTodos={this.clearTodos}
+          clearCompletedTodos={this.clearCompletedTodos}
         />
       </div>
     );
