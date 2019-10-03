@@ -1,0 +1,44 @@
+.App {
+    text-align: center;
+    margin: 0 auto;
+    background: lavender;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border-radius: 2rem;
+    margin-top: 6rem;
+}
+
+.App h1 {
+    margin: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+input {
+    margin-right: 0.2rem;
+}
+
+Button {
+    line-height: 1.5;
+    font-size: 0.8rem;
+}
+
+.btn {
+    margin: 0.15rem;
+    margin-right: 0;
+}
+
+.enter-task {
+    border-radius: 0.8rem;
+    border: 0;
+}
+
+p {
+    font-size: 1.4rem;
+}

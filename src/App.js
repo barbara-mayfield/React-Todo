@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TodoForm from './components/TodoComponents/TodoForm'
 import TodoList from './components/TodoComponents/TodoList.js'
+import "./App.css";
 // you will need a place to store your state in this component.
 // design `App` to be the parent component of your application.
 // this component is going to take care of state, and any change handlers you need to work with your state
@@ -55,8 +56,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>My Todo List</h1>
+      <div className="App">
+        <h1>Todo List</h1>
         <TodoList
           toggleComplete={this.toggleComplete}
           todos={this.state.todos}
