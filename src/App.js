@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-
 import TodoForm from './components/TodoComponents/TodoForm'
 import TodoList from './components/TodoComponents/TodoList.js'
-import Todo from './components/TodoComponents/Todo'
 // you will need a place to store your state in this component.
 // design `App` to be the parent component of your application.
 // this component is going to take care of state, and any change handlers you need to work with your state
@@ -11,36 +8,31 @@ import Todo from './components/TodoComponents/Todo'
 class App extends Component {
   constructor() {
     super();
-    this.state = { 
-      tasks: [
-      {
-        task: 'Eat Tacos',
-        id: 793, 
-        completed: false
-      },
-      {
-        task: 'Do Laundry',
-        id: 421,
-        completed: false
-      }
-    ],
-    task: ''
-    }
-  };
-
-  addTask = e => {
-    e.preventDefault();
-    const newTask = {
-      task: this.state.task,
-      id: Date.now(),
-      completed: false
-    }
-
-    this.setState({
-      tasks: [...this.state.tasks, newTask],
-      task: ""
-    })
+    this.state = {
+      todos: [
+        {
+          task: 'Clean Kitchen',
+          id: 1877877,
+          completed: false
+        },
+        {
+          task: 'Sweep Floors',
+          id: 8675309,
+          completed: false
+        }
+      ],
+      todo: ''
+    };
   }
+
+  addTodo = e => {
+    e.preventDefault();
+    const newTodo = { task: this.state.todo, completed: false, id: Date.now() };
+    this.setState({ 
+      todos: [...this.state.todos, newTodo], 
+      todo: '' 
+    });
+  };
   
   handleChange = e => {
     this.setState({
@@ -51,18 +43,18 @@ class App extends Component {
   render() {
     return (
       <div>
-        
-        <h1>To-Do List</h1>
-        <TodoList />
-
-        <TodoForm 
-            task={this.state.task}
-            addTask={this.addTask} 
-            handleChange={this.handleChange}
+        <h1>My Todo List</h1>
+        <TodoList
+          todos={this.state.todos}
+        />
+        <TodoForm
+          value={this.state.todo}
+          addTodo={this.addTodo}
+          handleChange={this.handleChange}
         />
       </div>
     );
-  };
-};
+  }
+}
 
 export default App;

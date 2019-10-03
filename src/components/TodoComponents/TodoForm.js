@@ -1,14 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const TodoForm = props => {  
+    console.log(props, 'props passed to TodoForm')
       return (
         <form>
           <input
             type="text"
+            name="todo"
             placeholder="Enter Task"
+            value={props.value}
             onChange={props.handleChange}
           />
-          <button type="submit" className="submit-btn btn" onClick={props.addTask}>
+          <button type="submit" className="submit-btn btn" onClick={props.addTodo}>
             Add Task
           </button>
           <button className="clear-btn btn">Clear</button>
